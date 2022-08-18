@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheCodes Week 1 Homework</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .icon {
+        color: #1a64d6;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        width: 0px;
+      }
+      h1 {
+        color: #1a64d6;
+        margin: 5px 0px;
+        text-align: center;
+      }
+      h2 {
+        font-size: xx-large;
+        font-weight: lighter;
+        margin: 5px 0px;
+        text-align: center;
+      }
+      .high-temp {
+        font-weight: bold;
+      }
+      ul {
+        padding: 0;
+      }
+      li {
+        border-radius: 10px;
+        display: block;
+        list-style: none;
+        margin: 0 auto;
+        max-width: 400px;
+        padding: 10px 0px;
+        text-align: center;
+        transition: all 200ms ease-in-out;
+      }
+      li:hover {
+        background: #fffbef;
+      }
+      .day {
+        font-size: large;
+        font-weight: bold;
+        padding: 15px;
+      }
+      .temp {
+        color: gray;
+        font-family: monospace;
+        font-size: x-large;
+        padding: 15px;
+      }
+      button {
+        background: #1a64d6;
+        border: 1px solid #1a64d6;
+        border-radius: 50px;
+        box-shadow: 0px 5px 5px lightgray;
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-size: medium;
+        margin: 0 auto;
+        padding: 20px 25px;
+        transition: all 200ms ease-in-out;
+      }
+      button:hover {
+        background: transparent;
+        color: #1a64d6;
+      }
+      .signature {
+        color: gray;
+        font-family: monospace;
+        font-size: large;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="icon">🌤</div>
+    <h1>Currently 21° in Tokyo</h1>
+    <h2>
+      13° /
+      <span class="high-temp">23°</span>
+    </h2>
+    <ul>
+      <li>
+        <div class="day">🌧 Tomorrow</div>
+        <div class="temp">
+          10° /
+          <span class="high-temp">22°</span>
+        </div>
+      </li>
+      <li>
+        <div class="day">🌥 Saturday</div>
+        <div class="temp">
+          15° /
+          <span class="high-temp">17°</span>
+        </div>
+      </li>
+      <li>
+        <div class="day">☀️ Sunday</div>
+        <div class="temp">
+          25° /
+          <span class="high-temp">28°</span>
+        </div>
+      </li>
+    </ul>
+    <button>Change City</button>
+    <div class="signature">Coded by Aabir Ahmed</div>
+  </body>
+</html>
