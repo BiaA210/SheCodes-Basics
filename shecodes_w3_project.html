@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheCodes Final Project</title>
+    <!--CSS-->
+    <style>
+      body {
+        background: #f2f2e8;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      /* Navigation bar */
+      .navbar {
+        background-color: #f2f2e8;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .navbar h1 {
+        float: left;
+        font-size: 25px;
+        margin: 25px;
+        text-transform: uppercase;
+      }
+      .pageMenu {
+        float: right;
+        margin: 25px;
+      }
+      .navbar a {
+        background-color: #f2f2e8;
+        border: 1px solid #f2f2e8;
+        color: black;
+        font-size: 15px;
+        padding: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 300ms ease-in-out;
+      }
+
+      .navbar a:hover {
+        background-color: #e7e3c5;
+        border: 1px solid #e7e3c5;
+        border-radius: 2px;
+        box-shadow: 1px 1px 5px lightgray;
+        color: #54777d;
+        cursor: pointer;
+      }
+      #pageBody {
+        margin: 0px 150px;
+      }
+
+      section {
+        padding: 100px 0px;
+      }
+
+      /* Banner */
+      .Banner {
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/03/DiezAlbumsBirth.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        margin-top: 100px;
+        padding: 150px;
+      }
+
+      .Banner h1 {
+        color: #f2f2e8;
+        font-size: 60px;
+        text-align: center;
+      }
+
+      a {
+        color: #54777d;
+        text-decoration: none;
+      }
+
+      /* Overview */
+
+      #overviewContent {
+        display: table;
+        clear: both;
+      }
+      #overviewContent div {
+        float: left;
+      }
+      .quote {
+        background: linear-gradient(#e0d8b0, #e7e3c5);
+        color: #54777d;
+        line-height: 250%;
+        margin-right: 10%;
+        margin-top: 1.5%;
+        padding: 10% 5%;
+        width: 25%;
+      }
+
+      .quoteAdjacentText {
+        font-size: 20px;
+        width: 50%;
+      }
+
+      /* Gallery */
+      #galleryContents {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(5, auto);
+        grid-gap: 15px;
+      }
+      #galleryContents img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 300ms ease-in-out;
+      }
+
+      #galleryContents img:hover {
+        opacity: 0.3;
+      }
+
+      #img01 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+      #img02 {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      #img03 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+      }
+      #img04 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+      #img05 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+      }
+      #img06 {
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 3;
+        grid-row-end: 4;
+      }
+      #img07 {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+      #img08 {
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+
+      #img01Caption {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+      #img02Caption {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+      #img03Caption {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+      #img04Caption {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+      #img05Caption {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+      #img06Caption {
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+      #img07Caption {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+      #img08Caption {
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        opacity: 1;
+        padding: 5%;
+        font-size: 15px;
+        z-index: -1;
+      }
+
+      /* All popups */
+
+      .row {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .moreInfo {
+        background-color: #e0d8b0;
+        margin: 30px;
+        padding: 40px;
+      }
+
+      .row:after {
+        clear: both;
+        content: "";
+        display: table;
+      }
+
+      .closebtn {
+        color: white;
+        cursor: pointer;
+        float: right;
+        font-size: 20px;
+      }
+
+      /* Key Contributions */
+
+      .contributionsItem {
+        background: #e7e3c5;
+        border: 1px solid #e7e3c5;
+        cursor: pointer;
+        font-weight: bold;
+        float: left;
+        margin: 20px auto;
+        padding: 35px;
+        text-align: center;
+        transition: all 200ms ease-in-out;
+        width: 35%;
+      }
+
+      .contributionsItem:hover {
+        background-color: #e0d8b0;
+        border: 1px solid #e0d8b0;
+        border-radius: 2px;
+        box-shadow: 1px 1px 10px lightgray;
+        cursor: pointer;
+      }
+
+      /* Key Figures */
+
+      .keyFiguresItem {
+        background: #e7e3c5;
+        border: 1px solid #e7e3c5;
+        cursor: pointer;
+        font-weight: bold;
+        float: left;
+        margin: 20px auto;
+        padding: 35px;
+        text-align: center;
+        transition: all 200ms ease-in-out;
+        width: 40%;
+      }
+
+      .keyFiguresItem img {
+        border: 1px solid #e0d8b0;
+        border-radius: 2px;
+        box-shadow: 5px 5px 10px #e0d8b0;
+        display: block;
+        height: 200px;
+        margin: 20px auto 0px auto;
+      }
+
+      .keyFiguresItem:hover {
+        background-color: #e0d8b0;
+        border: 1px solid #e0d8b0;
+        border-radius: 2px;
+        box-shadow: 1px 1px 10px lightgray;
+        cursor: pointer;
+      }
+
+      /* Other Figures */
+
+      .figuresItem {
+        background: #e7e3c5;
+        border: 1px solid #e7e3c5;
+        cursor: pointer;
+        font-weight: bold;
+        float: left;
+        margin: 20px auto;
+        padding: 35px;
+        text-align: center;
+        transition: all 200ms ease-in-out;
+        width: 10%;
+      }
+
+      .figuresItem:hover {
+        background-color: #e0d8b0;
+        border: 1px solid #e0d8b0;
+        border-radius: 2px;
+        box-shadow: 1px 1px 10px lightgray;
+        cursor: pointer;
+      }
+
+      /* Legacy */
+
+      #legacyContent {
+        display: table;
+        clear: both;
+      }
+      #legacyContent div {
+        float: left;
+      }
+
+      /* Learn More */
+
+      button {
+        color: #54777d;
+        background: #e0d8b0;
+        border: 5px solid #e0d8b0;
+        border-radius: 50px;
+        box-shadow: 0px 10px 10px lightgray;
+        display: block;
+        font-size: 20px;
+        margin: auto;
+        margin-bottom: 100px;
+        padding: 30px 50px;
+        transition: all 200ms ease-in-out;
+      }
+      button:hover {
+        background: #54777d;
+        border: 5px solid #54777d;
+        color: #e7e3c5;
+        cursor: pointer;
+      }
+
+      /*Button Response*/
+      .learnMoreForMedicine {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0 auto;
+      }
+
+      .learnMoreGrid {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin: 0 auto;
+      }
+      .wikiLink {
+        background-color: #e7e3c5;
+        border: 1px solid #e7e3c5;
+        cursor: pointer;
+        margin: 20px 5%;
+        padding: 30px 30px;
+        text-align: center;
+        transition: all 200ms ease-in-out;
+      }
+
+      .wikiLink:hover {
+        background-color: #e0d8b0;
+        border: 1px solid #e0d8b0;
+        border-radius: 2px;
+        box-shadow: 1px 1px 10px lightgray;
+        cursor: pointer;
+      }
+      /* Credits */
+
+      #Credits p {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <!--HTML-->
+  <body>
+    <!--Fixed navigation bar-->
+    <div class="navbar">
+      <!--Heading-->
+      <h1>
+        The History of Medicine <br />
+        during the Islamic Golden Age
+      </h1>
+
+      <!--Contents-->
+      <div class="pageMenu">
+        <a href="#Overview">Overview</a>
+        <a href="#Gallery">Gallery</a>
+        <a href="#Key Contributions">Key Contributions</a>
+        <a href="#Key Figures">Key Figures</a>
+        <a href="#Legacy">Legacy</a>
+        <a href="#Learn More">Learn More</a>
+      </div>
+    </div>
+
+    <!--Banner-->
+    <section class="Banner">
+      <h1>
+        The History of Medicine <br />
+        during the Islamic Golden Age
+      </h1>
+    </section>
+    <div id="pageBody">
+      <!--Overview-->
+      <section id="Overview">
+        <h3>Overview</h3>
+        <div id="overviewContent">
+          <div class="quote">
+            <h2>
+              “There is no disease that [God] has created, except that He also
+              has created its remedy.”
+              <br /><br />
+              <em>
+                - Muhammad ﷺ <br />
+                Islamic prophet
+              </em>
+            </h2>
+          </div>
+
+          <div class="quoteAdjacentText">
+            <p>
+              <strong>
+                Islamic Golden Age was a period of cultural, economic, and
+                scientific flourishing in the history of Islam.
+              </strong>
+              It is traditionally dated from the 8th century to the 14th
+              century, and spanned the Islamic empire, with the richest centres
+              of learning in Baghdad, Cairo, Cordoba, and Damascus. Over this
+              period, Muslim scholars and polymaths from various parts of the
+              world with different cultural backgrounds made significant
+              advances in fields such as philosophy, mathematics, sciences,
+              engineering, and healthcare.
+              <br /><br />
+              <strong>
+                Medicine was a central part of medieval Islamic culture.
+              </strong>
+              Islamic physicians and scholars developed a large and complex
+              medical literature exploring, analyzing, and synthesizing the
+              theory and practice of medicine. Intellectual thirst,
+              open-mindness, and vigor were at an all time high in this era.
+              During the Golden Age of Islam, classical learning was sought out,
+              systematised and improved upon by scientists and scholars with
+              such diligence that Arab science became the most advanced of its
+              day.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--Gallery-->
+      <section id="Gallery">
+        <h3>Gallery</h3>
+        <div id="galleryContents">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Maqamat_hariri.jpg/800px-Maqamat_hariri.jpg"
+            id="img01"
+            alt="Scholars at an Abbasid library, from the Maqamat of al-Hariri by Yahya ibn Mahmud al-Wasiti, Baghdad, 1237."
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Khalili_Collection_Islamic_Art_mss_0568_fol_2b-3a.jpg/1024px-Khalili_Collection_Islamic_Art_mss_0568_fol_2b-3a.jpg"
+            id="img02"
+            alt="16th century manuscript of the Al-Tibb al-Nabawi (Treatise on Prophetic Medicine) created for Ottoman emperor Suleiman the Magnificent."
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Divrigi_Darussifa.JPG"
+            id="img03"
+            alt="Hospital Building ('darüşşifa') of Divriği Great Mosque, Seljuq period, 13th century, Turkey."
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Tractat_de_medicina_d%27Avicenna.jpg/800px-Tractat_de_medicina_d%27Avicenna.jpg"
+            id="img04"
+            alt="The Canon of Medicine by Avicenna, printed in Venice 1595."
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Cheshm_manuscript.jpg"
+            id="img05"
+            alt="The eye, according to Hunain ibn Ishaq. From a manuscript dated circa 1200."
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/03/DiezAlbumsBirth.jpg"
+            id="img06"
+            alt="Birth of a prince. Illustration of Rashid-ad-Din's Jami' al-tawarikh. 14th century. The astrologers have astrolabes."
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Mansur1911.jpg/800px-Mansur1911.jpg"
+            id="img07"
+            alt="Mansur ibn Ilyas: Anatomy of the human body (تشريح بدن انسان, Tashrīḥ-i badan-i insān), c. 1450, U.S. National Library of Medicine."
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Arabischer_Maler_des_Kr%C3%A4uterbuchs_des_Dioskurides_004.jpg/800px-Arabischer_Maler_des_Kr%C3%A4uterbuchs_des_Dioskurides_004.jpg"
+            id="img08"
+            alt="Folio from an Arabic manuscript of Dioscorides, De materia medica, 1229."
+          />
+          <div id="img01Caption">
+            Scholars at an Abbasid library, from the Maqamat of al-Hariri by
+            Yahya ibn Mahmud al-Wasiti, Baghdad, 1237.
+          </div>
+          <div id="img02Caption">
+            16th century manuscript of the Al-Tibb al-Nabawi (Treatise on
+            Prophetic Medicine) created for Ottoman emperor Suleiman the
+            Magnificent.
+          </div>
+          <div id="img03Caption">
+            Hospital Building ('darüşşifa') of Divriği Great Mosque, Seljuq
+            period, 13th century, Turkey.
+          </div>
+          <div id="img04Caption">
+            The Canon of Medicine by Avicenna, printed in Venice 1595.
+          </div>
+          <div id="img05Caption">
+            The eye, according to Hunain ibn Ishaq. From a manuscript dated
+            circa 1200.
+          </div>
+          <div id="img06Caption">
+            Birth of a prince. Illustration of Rashid-ad-Din's Jami'
+            al-tawarikh. 14th century. The astrologers have astrolabes.
+          </div>
+          <div id="img07Caption">
+            Mansur ibn Ilyas: Anatomy of the human body (تشريح بدن انسان,
+            Tashrīḥ-i badan-i insān), c. 1450, U.S. National Library of
+            Medicine.
+          </div>
+          <div id="img08Caption">
+            Folio from an Arabic manuscript of Dioscorides, De materia medica,
+            1229.
+          </div>
+        </div>
+      </section>
+
+      <!--Key Contributions-->
+      <section id="Key Contributions">
+        <h3>Key Contributions</h3>
+        <div class="row">
+          <div class="contributionsItem" onclick="openTab('b1');">
+            Human Anatomy and Physiology
+          </div>
+          <div class="contributionsItem" onclick="openTab('b2');">Drugs</div>
+        </div>
+        <div id="b1" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Physicians of the Islamic Golden Age made important advances in the
+            fields of human anatomy and physiology.
+            <br /><br />
+            Amongst these is the work of Ibn al-Nafis, a 13th-century Syrian
+            physician, who made significant in cardiology. He was the first to
+            correctly observe the structure of the heart, detailed in his
+            predominant work, 'Commentary on the Anatomy of the Canon of
+            Avicenna'. He also made the link of blood being “purified”
+            (oxidised) in the lungs, and was the first to understand the
+            mechanism of the pulse and touched upon the idea of capillaries as
+            microscopic pores. His work corrected many misconceptions made by
+            the works of other renowned physicians, and his observations were a
+            major advance in the comprehension of the human body.
+            <br /><br />
+            11th-century Iraqi scientist Ibn al-Haytham made advances in the
+            field of optics, explaining that the eye was an optical instrument
+            and developing the theory for image formation, explained through the
+            refraction of light rays passing between two media of different
+            densities.
+            <br /><br />
+            Ahmad ibn Abi al-Ash'ath, a famous physician from 10th-century Iraq,
+            described the physiology of the stomach in a live lion, making him
+            the first person to initiate experimental events in gastric
+            physiology.
+            <br /><br />
+            12th-centry Iraqi physician and traveller Abd al-Latif al-Baghdadi
+            made advances in osteology, correcting works of Greek physician
+            Galen regarding the formation of the bones of the lower jaw
+            (mandible), coccyx and sacrum after he had the opportunity to
+            examine a large number of skeletons during the famine in Egypt in
+            597 AH.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Human_anatomy_and_physiology"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="b2" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Medical contributions made by medieval Islam included the use of
+            plants as a type of remedy or medicine. Remedies used included
+            Papaver somniferum Linnaeus, poppy, and Cannabis sativa Linnaeus,
+            hemp. Many traditional remedies are still used across the world to
+            this day, and as more are studied, modern tests prove many of them
+            to be beneficial to the health of the human body.
+            <br /><br />
+            Islamic physicians lay the foundations for modern scientific
+            experimentation by using methodical research and meticulous
+            documentation of herbal remedies; at the time, Islamic physicians
+            and scientists were the only ones using scientific experimentation.
+            As the territory of the Islamic empire grew, new plants, seeds, and
+            spices were discovered and tested for medicinal uses. Hospitals kept
+            herbal garden, and many cultivated an extensive collection of
+            medicinal plants.
+            <br /><br />
+            Ali al-Ruhawi believed that a physician must be a botanist and
+            understand pharmacological characteristics of the various
+            morphological parts. Islamic scholars produced numerous works on
+            herbal remedies. The first book to document medicinal plants at the
+            time was 'The Book of Plants', which was written by 9th-century
+            Iranian al-Dinawari (known as the ‘Father of modern botany’). His
+            work was of such importance at the time that physicians and
+            pharmacists had to memorise it in order to be allowed to practise
+            medicine.
+            <br /><br />
+            Other notable works included 'Dictionary of Simple Remedies and
+            Food' by Ibn al-Baytar, which studied over three thousand plants;
+            'The Collection of Simples, Medicinal Plants and Resulting
+            Medicines' by Ibn Samajun, which classified many plants by their
+            medical properties; and 'The Book of Simple Drugs' by al-Gafiqi,
+            whose work was so accurate that it was republished in 1932.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Drugs"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="row">
+          <div class="contributionsItem" onclick="openTab('d1');">Surgery</div>
+          <div class="contributionsItem" onclick="openTab('d2');">
+            Medical Ethics
+          </div>
+        </div>
+        <div id="d1" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Surgical practices and equipment in the Islamic empire was the most
+            advanced in the world, and still influence surgery in the modern
+            day. Notable surgeons of the time included Ibn al-Haytham, a
+            prominent eye surgeon; and Ibn Zuhr, who was known for his
+            methodical experimental approach to surgery and whose distinguished
+            work, ‘Book of Simplification concerning Therapeutics and Diet’
+            prompted its evolvement.
+            <br /><br />
+            It was the scholar Al-Zahrawi (known as the ‘Father of modern
+            surgery’) who had the greatest influence and impact on surgery. His
+            thirty-volume treatise, ‘The Method of Medicine’, introduced a range
+            of new surgical procedures and over 200 different surgical
+            instruments, most of which are still used to this day. Al-Zahrawi’s
+            influence was so great that his work was studied at prominent
+            universities in the western world until the end of the 19th century.
+            <br /><br />
+            Many of the procedures carried out by Islamic surgeons were complex
+            and intricate, and so required cutting edge surgical instruments.
+            Such examples include forceps, hooks and various scalpels, most of
+            which have received only small modifications when being adapted for
+            use in modern surgical procedures. Similarly, some procedures
+            invented by the surgeons of the Islamic Golden Age were still used
+            well into the era of modern medicine, such as the use of catgut for
+            internal stitching and the treatment of broken or disjointed bones
+            through external pressure.
+            <br /><br />
+            In medieval Islamic society, antisepsis and anesthesia were
+            important aspects of surgery. Ancient Islamic physicians attempted
+            to prevent infection when performing procedures for a sick patient,
+            for example by washing a patient before a procedure. Similarly,
+            following a procedure, the area was often cleaned with “wine, wine
+            mixed with oil of roses, oil of roses alone, salt water, or vinegar
+            water” which have antiseptic properties, among other substances.
+            Drugs to cause drowsiness, especially opium, were used to cause
+            unconsciousness before operations, as a modern-day anesthetic would.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Surgery"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="d2" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Physicians like al-Razi wrote about the importance of morality in
+            medicine, and may have presented, together with Avicenna and Ibn
+            al-Nafis, the first concept of ethics or "pratical philosophy" in
+            Islamic medicine. Al-Razi wote his treatise ‘Book on Spritual
+            Physick’ on popular ethics. He felt that it was important not only
+            for the physician to be an expert in his field, but also to be a
+            role model. His ideas on medical ethics were divided into three
+            concepts: the physician's responsibility to patients and to self,
+            and also the patients’ responsibility to physicians.
+            <br /><br />
+            The earliest surviving Arabic work on medical ethics is ‘Morals of
+            the physician’ (or ‘Practical Medical Deontology’) and was based on
+            the works of Hippocrates and Galen. Morals of the physician was
+            al-Ruhawi's introductory comment to elevate the practice of medicine
+            in order to aid the ill and enlist the help of God in his support.
+            He quotes Hippocrates that the medical arts involve three factors:
+            the illness, the patient, and the physician. The book consisted of
+            twenty chapters on various topics related to medical ethics. In the
+            first chapter of his book, al-Ruhawi declared that the truth is more
+            important for physicians who follow rational ethics and the medical
+            injunctions. Al-Ruhawi regarded physicians as "guardians of souls
+            and bodies", and insisted them to use proper medical etiquette for
+            strong medical ethics and not to ignore theoretical overtones. In
+            pre-Islamic times, there were problems of a lack of part of an
+            element of struggle and conflict to resolve ethical difficulties.
+            Al-Ruhawi helped bridge this gap.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Medical_ethics"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="row">
+          <div class="contributionsItem" onclick="openTab('f1');">
+            Hospitals
+          </div>
+          <div class="contributionsItem" onclick="openTab('f2');">
+            Medical Education
+          </div>
+        </div>
+        <div id="f1" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Hospitals in the Islamic empire were some of the most advanced in
+            the entire world. They were called Bimaristan, meaning "house of the
+            sick". Bimaristan were built and maintained by funds raised through
+            taxes called zakat and by charitable donations called Waqf so that
+            treatments could be provided for free.
+            <br /><br />
+            Hospitals were secular, serving all people regardless of their race,
+            religion, citizenship, or gender. The Waqf documents stated nobody
+            was ever to be turned away. The ultimate goal of all physicians and
+            hospital staff was to work together to help the well-being of their
+            patients. There was no time limit a patient could spend as an
+            inpatient; the Waqf documents stated the hospital was required to
+            keep all patients until they were fully recovered.
+            <br /><br />
+            Men and women were admitted to separate but equally equipped wards.
+            The separate wards were further divided into mental disease,
+            contagious disease, non-contagious disease, surgery, medicine, and
+            eye disease. Each hospital contained a lecture hall, kitchen,
+            pharmacy, library, and prayer space. Recreational materials and
+            musicians were often employed to comfort patients. Additionally,
+            physicians and midwives were sent to the poorest, rural areas to
+            care for those who were unable to travel to the hospitals. Indeed,
+            when Ibn Jubayr passed though the Near East on his travels he
+            remarked that “the hospitals are among the finest proofs of the
+            glory of Islam.”
+            <br /><br />
+            Islamic hospitals were the first to keep written records of patients
+            and their medical treatment. Records were referenced in future
+            treatments. During this era, physician licensure became mandatory in
+            the Abbasid Caliphate. In 931 AD, Caliph Al-Muqtadir learned of the
+            death of one of his subjects as a result of a physician's error. He
+            immediately ordered that doctors would be prevented from practicing
+            until they passed an examination.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Hospitals"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="f2" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Before the turn of the millennium, hospitals became a popular centre
+            for medical education, where students would be trained directly
+            under a practicing physician. The training of physicians in the
+            Islamic empire was extremely meticulous and intensive. Students
+            underwent both practical and theoretical lessons. They would shadow
+            doctors and surgeons during their clinical rounds in order to gain
+            experience in a practical environment.
+            <br /><br />
+            It was common practice for students to travel to different parts of
+            the empire in order to be taught by the most reputable physicians of
+            the time. As well as lectures and tutorage, the pupils also studied
+            from textbooks and papers by well-known physicians. The rigorous and
+            extensive education of these medical students allowed the physicians
+            of the Islamic empire to be some of the most knowledgeable and
+            accomplished in the world at the time.
+            <br /><br />
+            Outside of the hospital, physicians would teach students in lectures
+            known as "majlises". Al-Dakhwār became famous throughout Damascus
+            for his majlises and eventually oversaw all of the physicians in
+            Egypt and Syria. He would go on to become the first to establish
+            what would be described as a "medical school" in that its teaching
+            focused solely on medicine. This all eventually led to the
+            standardization and vetting process of medical education.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Medical_education"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="row">
+          <div class="contributionsItem" onclick="openTab('h1');">Pharmacy</div>
+          <div class="contributionsItem" onclick="openTab('h2');">
+            Female Health
+          </div>
+        </div>
+        <div id="h1" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            The birth of pharmacy as an independent, well-defined profession was
+            established in the early ninth century by Muslim scholars. The
+            Islamic physician al-Kindi was the first to differentiate between
+            medicine and pharmacology as a science and established the basics of
+            medical formulary by uncovering how to determine correct drug
+            dosage. The practice and duties of a pharmacist were outlined in
+            al-Biruni’s book, ‘The Book of Pharmacology’; this book also gave
+            detailed knowledge of the properties of almost all know drugs at the
+            time, as well as giving the synonymous drug names in several
+            languages including Persian, Greek, and Afghan.
+            <br /><br />
+            Sabur Ibn Sahl was a 9th-century physician who wrote the first text
+            on pharmacy in his book ‘Book of medicines’. Islamicate pharmacy
+            achieved the implementation of a systematic method of identifying
+            substances based on their medicinal attributes. In addition, Sabur
+            also wrote three other books on pharmacy, and although his works was
+            not enforced by the government authorities, they were widely
+            accepted in the medical circles.
+            <br /><br />
+            A major advance to drug development came when al-Zahrawi established
+            the processes of sublimation and distillation when preparing
+            medicines, allowing a whole new assortment of medicines to be
+            manufactured; al-Zahrawi also pioneered the use of catgut parcels in
+            which to store drugs before ingestion, a technique which was a
+            forerunner to the use of drug capsules for modern medications.
+            <br /><br />
+            As well as establishing the science and philosophy of pharmacy, the
+            practice was closely monitored and supervised by government
+            officials known as muhtasib, who were periodically sent to check the
+            quality and legitimacy of the dispensaries and pharmacists. They
+            were tasked with testing the purity and quality of the drugs being
+            sold and the accuracy of the equipment such as weights and measures,
+            as well as getting rid of charlatans. These maintained the integrity
+            of the practice and ensured that all customers were provided with
+            the treatments that they required.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Pharmacy"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="h2" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            The pain and medical risk associated with childbirth was so
+            respected that women who died while giving birth could be viewed as
+            martyrs. Medical scholars recognized the importance of family
+            planning, primarily through contraceptives and abortion. The topic
+            of contraceptives and abortion had been very controversial
+            throughout the western world; however, in Islamic culture, due to
+            the ties between women's reproductive health and one's overall
+            well-being, medieval Muslim physicians devoted time and research
+            into recording and testing different theories in this field.
+            <br /><br />
+            Medical journals and other literature from this time show an
+            extensive and detailed list of a variety of different drugs and
+            plant derived substances that supposedly have abortifacient
+            qualities. Many of these substances were later laboratory tested and
+            found to be correctly identified in their ability to induce a
+            miscarriage. Further development in this field led to the
+            introduction of contraceptives that would prevent one's need to
+            induce a miscarriage.
+            <br /><br />
+            Abortions were frequently sought after by women of this time. It is
+            clear that the Islamic culture not only incorporated, but brought
+            about positive connotations in regards to women's reproductive
+            health. During a period in which men dominated medicine, the almost
+            immediate inclusion of women's reproductive health in medical texts,
+            along with a variety of different techniques and contraceptive
+            substances, long before the development of 'the pill', reinforces
+            the cultural belief that men and women were to be viewed as equals,
+            in regards to sexual health.
+            <br /><br />
+            The role of women as practitioners appears in a number of works
+            despite the male dominance within the medical field. Two female
+            physicians from Ibn Zuhr's family served the Almohad ruler Abu Yusuf
+            Ya'qub al-Mansur in the 12th century. Later in the 15th century,
+            female surgeons were illustrated for the first time in Şerafeddin
+            Sabuncuoğlu's ‘Imperial Surgery’. Female doctors, midwives, and wet
+            nurses have all been mentioned in literature of the time period.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world#Women_and_medicine"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="row">
+          <div class="contributionsItem" onclick="openTab('j1');">
+            Ophthalmology
+          </div>
+          <div class="contributionsItem" onclick="openTab('j2');">Hygiene</div>
+        </div>
+        <div id="j1" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            One area of medicine which was greatly contributed to by the work of
+            Islamic physicians was ophthalmology. Islamic physician Hunayn ibn
+            Ishaq produced ten prominent works on field of ophthalmology, in
+            which he depicted the first ever anatomic illustrations of the eye.
+            Islamic oculists were also known to use modern terms in their
+            writings, for instance, ‘cornea’, ‘conjunctiva’, ‘uvea’, and
+            ‘retina’. <br /><br />
+            It is thought that this field was especially pursued, especially in
+            places such as Egypt, due to the prevalence of eye diseases caused
+            by desert dust. As a result, many major breakthroughs were made in
+            the treatment of these diseases, the most renowned of which was the
+            cure for cataracts. Developed by the Iraqi physician al-Mawsili, and
+            documented in his book Choice of Eye Diseases, the treatment
+            involved using a hollow needle, designed by al-Mawsili, to remove
+            the cataract by suction. The treatment has only a few modern
+            modifications in the modern world due to advanced technology, but
+            the original treatment of couching cataracts still lives on in some
+            countries, predominantly those in Southern Asia.
+            <br /><br />
+            Al-Mawsili wasn’t the only prominent oculist of the Islamic Golden
+            Age; al-Gafiqi developed a treatment of the eye disease trachoma,
+            which was used until the First World War; Ibn al-Nafis wrote a
+            prominent textbook on ophthalmology called ‘The Polished Book on
+            Experimental Ophthalmology’. However, by far the most prominent
+            oculist was Ali ibn Isa al-Kahhal. Ibn Isa’s predominant work ‘The
+            Notebook of the Oculist’, was the most comprehensive and accurate
+            text book on ophthalmology ever written at the time, covering over
+            130 different diseases of the eye and remaining the supreme
+            authority in its field for centuries, even being translated into
+            Latin.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Ophthalmology_in_medieval_Islam"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="j2" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Practices in Islamic medicine was concerned with the prevention of
+            disease and illness along with than finding cures, especially
+            through basic hygiene and cleanliness. Common practices included
+            washing five times a day before each prayer, and the brushing of
+            teeth using a miswak twig, which has since been proven to contain
+            anti-bacterial and anti-inflammatory properties, reducing gum
+            infections and tooth decay. Furthermore, the use of soaps was
+            commonplace, made using oil and al-qali (root of the word ‘alkali’),
+            which was a salt-like substance made from sodium carbonate and
+            potassium carbonate; the mixture was boiled and left to harden;
+            decorative coloured and perfumed soap was made as well as medicinal
+            soaps. At the same time in Europe soap was unheard of and wasn’t
+            introduced until the 18th century. <br /><br />
+            In fact, hygiene was so significant to Muslims that it was
+            considered as a medical science rather than a separate practice.
+            Al-Zahrawi even included a treatise on ‘Medicines of Beauty’ in his
+            book ‘The Method of Medicine’, which described the care of teeth,
+            hair, and skin among other parts of the body. Treatments included
+            the strengthening of gums and whitening of teeth, as well as the use
+            of nasal sprays, mouth washes, sun lotion, and hand creams.
+            <br /><br />
+            As well as external hygiene, Muslims were also concerned with their
+            internal cleanliness. Numerous damaging dietary practices were
+            banned by the teachings of the Shari’ah, including the consumption
+            of pork, alcohol, and other intoxicants. Other dietary habits such
+            as fasting and eating less than desired were also encouraged. The
+            importance of a healthy diet played a very significant role in
+            Islamic medicine, with the first ever scientific book on food and
+            regimen of health, ‘The Book of Diet’ being written by Ibn Zuhr
+            during the 11th century.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Ritual_purity_in_Islam"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+      </section>
+
+      <!--Key Figures-->
+      <section id="Key Figures">
+        <h3>Key Figures</h3>
+
+        <div class="row">
+          <div class="keyFiguresItem" onclick="openTab('l1');">
+            Al-Razi
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Portrait_of_Rhazes_%28al-Razi%29_%28AD_865_-_925%29_Wellcome_L0005053_%28cropped%29.jpg"
+              height="100px"
+            />
+          </div>
+          <div class="keyFiguresItem" onclick="openTab('l2');">
+            Ibn Sina
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/e/e7/1950_%22Avicenna%22_stamp_of_Iran.jpg"
+              height="100px"
+            />
+          </div>
+        </div>
+        <div id="l1" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Muhammad ibn Zakariya al-Razi (Latinized: Rhazes) was one of the
+            most versatile scientists of the Islamic Golden Age. A Persian-born
+            physician, alchemist, and philosopher, he is most famous for his
+            medical works, but he also wrote botanical and zoological works, as
+            well as books on physics and mathematics. Many of his books were
+            translated into Latin, and he remained one of the undisputed
+            authorities in European medicine well into the 17th century. He was
+            considered by many to be the father of Islamic medicine due to the
+            way he refined the scientific method and promoted experimentation
+            and observation as the most reliable way to carry out research.
+            <br /><br />
+            Arguably his greatest achievement was ‘The Comprehensive Book on
+            Medicine’, which compiled most of the known medical knowledge from
+            the time. Also known as ‘The Virtuous Life’, this
+            twenty-three-volume encyclopaedia was a posthumous compilation of
+            Rhazes’ medical notes that he made throughout his life in the form
+            of extracts from his reading, as well as observations from his own
+            medical experience. Al-Razi cited Greek, Syrian, Indian, and earlier
+            Arabic works, and also included his own research. This included one
+            of his most significant and celebrated studies, a clinical
+            characterisation of smallpox and measles which allowed the two
+            diseases to be distinguished from each other for the first time. The
+            works covered every branch of medicine, with each volume dealing
+            with specific parts or diseases of the body.
+            <br /><br />
+            ‘The Comprehensive Book on Medicine’ remained one of the most
+            respected medical textbooks, not only in the Islamic world, but also
+            in the West for several centuries. It remained an authoritative
+            textbook on medicine in most European universities, regarded until
+            the seventeenth century as the most comprehensive work ever written
+            by a medical scientist.
+            <br /><br />
+            Rhazes also produced over two hundred other books on medicine and
+            philosophy, among which notable titles included ‘The Diseases of
+            Children’, which was the first book to deal with paediatrics as an
+            independent field of medicine; and ‘A Medical Advisor for the
+            General Public’, the first medical manual directed specifically at
+            the general public, which included treatments for a range of common
+            ailments such as headaches, colds, and coughing.
+            <br /><br />
+            Another of Rhazes’ greatest successes lay in his progressive stance
+            towards the ethics of medicine. He wrote extensively on the nature
+            of relationship between a doctor and their patient, believing that
+            it should be built on trust, and heavily condemned the practices of
+            charlatan doctors who extorted the afflicted by selling fake cures.
+            Therefore, Al-Razi established himself not only as one of Islam’s
+            most knowledgeable physicians, but also one of great moral standing,
+            whose progressive medical ethics helped shape the legitimacy and
+            integrity of the medical practice for centuries to come.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Abu_Bakr_al-Razi"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="l2" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Abu-Ali al-Husayn ibn Abdullah ibn-Sina (Latinized: Avicenna) was
+            Perian polymath and physician of the tenth and eleventh centuries.
+            He was known for his scientific works, but especially his writing on
+            medicine. He has been described as the "Father of Early Modern
+            Medicine".
+            <br /><br />
+            Ibn Sina is credited with many varied medical observations and
+            discoveries, such as recognizing the potential of airborne
+            transmission of disease, providing insight into many psychiatric
+            conditions, recommending use of forceps in deliveries complicated by
+            fetal distress, distinguishing central from peripheral facial
+            paralysis, and describing guinea worm infection and trigeminal
+            neuralgia.
+            <br /><br />
+            By the age of sixteen he was already researching and practicing
+            medicine, and during his career he wrote a total of 276 works, 43 of
+            which were in medicine. In 1025, he completed his most famous work,
+            ‘Code of Laws in Medicine’, otherwise known simply as the ‘Canon’.
+            The Canon is comprised of five different books which cover different
+            aspects of medicine, compiling previously known information and
+            Avicenna’s own research: General Medical Principles, Material
+            Medica, Diseases Occurring in a Particular Part of the Body,
+            Diseases Not Specific to One Bodily Part and Recipes for Compound
+            Remedies. Its arrangement, comprehensiveness and methods of
+            explanation very closely follow the format of modern medical
+            textbooks, and consequently the Canon became the most widely used
+            medical textbook in Europe and the Islamic empire up until the 17th
+            century; its influence was so enduring that it was still in use at
+            Brussels University until 1909.
+            <br /><br />
+            While the Canon was by far Ibn Sina’s most celebrated book, his most
+            widespread work during the Islamic Golden Age was his ‘Medical
+            Poem’, which was summarised basic medical principles into poetic
+            form, so easing their memorisation by medical students. His other
+            works cover subjects including angelology, heart medicines, and
+            treatment of kidney diseases.
+          </p>
+          <br />
+          <a href="https://en.wikipedia.org/wiki/Avicenna" target="“_blank”">
+            Learn More
+          </a>
+        </div>
+
+        <!--Other Figures-->
+        <div class="row">
+          <div class="figuresItem" onclick="openTab('n1');">Ali al-Rida</div>
+          <div class="figuresItem" onclick="openTab('n2');">Al-Tabari</div>
+          <div class="figuresItem" onclick="openTab('n3');">Al-Tamimi</div>
+          <div class="figuresItem" onclick="openTab('n4');">Haly Abbas</div>
+          <div class="figuresItem" onclick="openTab('n5');">Ibn Butlan</div>
+        </div>
+        <div id="n1" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Ali ibn Musa al-Rida (765–818) is the 8th Imam of the Shia. His
+            treatise "Al-Risalah al-Dhahabiah" ("The Golden Treatise") deals
+            with medical cures and the maintenance of good health, and is
+            dedicated to the caliph Ma'mun. It was regarded at his time as an
+            important work of literature in the science of medicine, and the
+            most precious medical treatise from the point of view of Muslimic
+            religious tradition. It is honoured by the title "the golden
+            treatise" as Ma'mun had ordered it to be written in gold ink. In his
+            work, Al-Ridha is influenced by the concept of humoral medicine.
+          </p>
+          <br />
+          <a href="https://en.wikipedia.org/wiki/Ali_al-Rida" target="“_blank”">
+            Learn More
+          </a>
+        </div>
+        <div id="n2" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            The first encyclopedia of medicine in Arabic language was by Persian
+            scientist Ali ibn Sahl Rabban al-Tabari's Firdous al-Hikmah
+            ("Paradise of Wisdom"), written in seven parts, c. 860 dedicated to
+            Caliph al-Mutawakkil. His encyclopedia was influenced by Greek
+            sources, Hippocrates, Galen, Aristotle, and Dioscurides. Al-Tabari,
+            a pioneer in the field of child development, emphasized strong ties
+            between psychology and medicine, and the need for psychotherapy and
+            counseling in the therapeutic treatment of patients. His
+            encyclopedia also discussed the influence of Sushruta and Charaka on
+            medicine, including psychotherapy.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Ali_ibn_Sahl_Rabban_al-Tabari"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="n3" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Al-Tamimi, the physician (d. 990) became renown for his skills in
+            compounding medicines, especially theriac, an antidote for poisons.
+            His works, many of which no longer survive, are cited by later
+            physicians. Taking what was known at the time by the classical Greek
+            writers, Al-Tamimi expanded on their knowledge of the properties of
+            plants and minerals, becoming avant garde in his field.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/Al-Tamimi,_the_physician"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="n4" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            'Ali ibn al-'Abbas al-Majusi (died 994 AD), also known as Haly
+            Abbas, was famous for the Kitab al-Maliki translated as the Complete
+            Book of the Medical Art and later, more famously known as The Royal
+            Book. Considered one of the great classical works of Islamic
+            medicine, it was free of magical and astrological ideas and thought
+            to represent Galenism of Arabic medicine in the purest form. This
+            book was translated by Constantine and was used as a textbook of
+            surgery in schools across Europe. The Royal Book has maintained the
+            same level of fame as Avicenna's Canon throughout the Middle Ages
+            and into modern time. One of the greatest contributions Haly Abbas
+            made to medical science was his description of the capillary
+            circulation found within the Royal Book.
+          </p>
+          <br />
+          <a
+            href="https://en.wikipedia.org/wiki/%27Ali_ibn_al-%27Abbas_al-Majusi"
+            target="“_blank”"
+          >
+            Learn More
+          </a>
+        </div>
+        <div id="n5" class="moreInfo" style="display: none">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+          >
+            ✖
+          </span>
+          <p>
+            Ibn Buṭlān, otherwise known as Yawānīs al-Mukhtār ibn al-Ḥasan ibn
+            ʿAbdūn al-Baghdādī, was an Arab physician who was active in Baghdad
+            during the Islamic Golden Age. He is known as an author of the
+            Taqwim al-Sihhah (The Maintenance of Health تقويم الصحة), in the
+            West, best known under its Latinized translation, Tacuinum Sanitatis
+            (sometimes Taccuinum Sanitatis). The work treated matters of
+            hygiene, dietetics, and exercise. It emphasized the benefits of
+            regular attention to the personal physical and mental well-being.
+            The continued popularity and publication of his book into the
+            sixteenth century is thought to be demonstration of the influence
+            that Arabic culture had on early modern Europe.
+          </p>
+          <br />
+          <a href="https://en.wikipedia.org/wiki/Ibn_Butlan" target="“_blank”">
+            Learn More
+          </a>
+        </div>
+      </section>
+
+      <!--Legacy-->
+      <section id="Legacy">
+        <h3>Legacy</h3>
+        <div id="legacyContent">
+          <div class="quote">
+            <h2>
+              “The hospitals are among the finest proofs of the glory of Islam.”
+              <br /><br />
+              <em>
+                - Ibn Jubayr <br />
+                Arab geographer, traveller, and poet from al-Andalus
+              </em>
+            </h2>
+          </div>
+          <div class="quoteAdjacentText">
+            <p>
+              <strong>
+                Medieval Islam's receptiveness to new ideas and heritages helped
+                it make major advances in medicine during this time.
+              </strong>
+              <br /><br />
+              Medieval Islamic scolars added to earlier medical ideas and
+              techniques, expanding the development of the health sciences and
+              corresponding institutions, and advancing medical knowledge in
+              areas such as surgery and understanding of the human body. Despite
+              this, many Western scholars have not fully acknowledged its
+              influence (independent of Roman and Greek influence) on the
+              development of medicine. Through the development of hospitals,
+              scientific methods, and surgical techniques, as well as
+              discoveries in fields such as physiology, pharmacy, and
+              ophthalmology, medieval Islamic scholars had a massive influence
+              on laying the foundations for modern medicine.
+              <br /><br />
+              As well as the immense amount of practical knowledge they
+              contributed to the medical field, Islam’s greatest contribution
+              was less in specific remedies, but rather more in the overarching
+              wisdom and philosophy its physicians bestowed upon the medical
+              practice. Perhaps the greatest demonstration of Muslim values was
+              summarised in the constitution establishing the al-Mansuri
+              hospital in Cairo: “It’s [the hospital’s] duty to give care to the
+              ill, poor, men and women until they recover. It is at the service
+              of the powerful and the weak, and the poor and the rich, of the
+              subject and the prince, of the citizen and the brigand, without
+              demand for any form of payment, but only for the sake of God, the
+              provider.” Islamic medicine of the Golden Age helped shape the
+              morality and integrity of the medical practice for centuries to
+              come.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--Learn More-->
+      <section id="Learn More">
+        <button>
+          <strong>
+            Want to learn more about medicine in the Islamic Golden Age?
+          </strong>
+        </button>
+        <div id="placeholder"></div>
+      </section>
+
+      <!--Credit-->
+      <section id="Credits">
+        <hr />
+        <br />
+        <p>Page created by Aabir Ahmed</p>
+      </section>
+    </div>
+
+    <!--JavaScript-->
+    <script>
+      // Expanding Box
+      function openTab(tabName) {
+        var i, x;
+        x = document.getElementsByClassName("moreInfo");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+      }
+      // Learn More
+
+      function LearnMoreFunction() {
+        let learnMoreInfo = prompt(
+          "Do you want to learn more about medicine in the Islamic Golden Age? (Yes/No)"
+        );
+        learnMoreInfo = learnMoreInfo.toLowerCase();
+        learnMoreInfo = learnMoreInfo.trim();
+        alert("Thank you for your response");
+
+        let learnMoreResponse = document.querySelector("#placeholder");
+
+        if (learnMoreInfo === "yes") {
+          learnMoreResponse.innerHTML = `<h4>Learn more about medicine during the Islamic Golden Age:</h4>
+    <div class="learnMoreForMedicine">
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Medicine_in_the_medieval_Islamic_world"
+          target="“_blank”"
+          >Medicine in the medieval Islamic world</a
+        >
+      </div>
+    </div>
+
+    <h4>
+      And learn about these other advancements made during the Islamic Golden
+      Age:
+    </h4>
+    <div class="learnMoreGrid">
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Education"
+          target="“_blank”"
+          >Education</a
+        >
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Law"
+          target="“_blank”"
+        >
+          Law
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Theology"
+          target="“_blank”"
+        >
+          Theology
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Philosophy"
+          target="“_blank”"
+        >
+          Philosophy
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Mathematics"
+          target="“_blank”"
+        >
+          Mathematics
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Natural_sciences"
+          target="“_blank”"
+        >
+          Natural sciences
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Engineering"
+          target="“_blank”"
+        >
+          Engineering
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Social_sciences"
+          target="“_blank”"
+        >
+          Social sciences
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Commerce_and_travel"
+          target="“_blank”"
+        >
+          Commerce and travel
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Arts_and_culture"
+          target="“_blank”"
+        >
+          Arts and culture
+        </a>
+      </div>
+    </div>`;
+        } else {
+          learnMoreResponse.innerHTML = `<h4>
+      Learn about these other advancements made during the Islamic Golden Age:
+    </h4>
+    <div class="learnMoreGrid">
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Education"
+          target="“_blank”"
+          >Education</a
+        >
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Law"
+          target="“_blank”"
+        >
+          Law
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Theology"
+          target="“_blank”"
+        >
+          Theology
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Philosophy"
+          target="“_blank”"
+        >
+          Philosophy
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Mathematics"
+          target="“_blank”"
+        >
+          Mathematics
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Natural_sciences"
+          target="“_blank”"
+        >
+          Natural sciences
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Engineering"
+          target="“_blank”"
+        >
+          Engineering
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Social_sciences"
+          target="“_blank”"
+        >
+          Social sciences
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Commerce_and_travel"
+          target="“_blank”"
+        >
+          Commerce and travel
+        </a>
+      </div>
+      <div class="wikiLink">
+        <a
+          href="https://en.wikipedia.org/wiki/Islamic_Golden_Age#Arts_and_culture"
+          target="“_blank”"
+        >
+          Arts and culture
+        </a>
+      </div>
+    </div>`;
+        }
+      }
+
+      let learnMoreButton = document.querySelector("button");
+      learnMoreButton.addEventListener("click", LearnMoreFunction);
+    </script>
+  </body>
+</html>
